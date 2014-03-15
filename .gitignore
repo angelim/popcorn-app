@@ -12,6 +12,7 @@ lib-cov
 node_modules/
 
 build/
+node-webkit.app
 
 pids
 logs
