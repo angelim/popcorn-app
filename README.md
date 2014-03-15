@@ -1,29 +1,10 @@
-#Warning the repo was cleaned to shrink its size from over 100 Mo to less than 5 Mo. Please re-clone your project or use `git rebase`. Thanks
+#Popcorn time
 
-#Popcorn time [![Dependency Status](https://david-dm.org/isra17/popcorn-app.svg?theme=shields.io)](https://david-dm.org/isra17/popcorn-app)
+[![Dependency Status](https://david-dm.org/isra17/popcorn-app.svg?theme=shields.io)](https://david-dm.org/isra17/popcorn-app)
 
-## Idea
+[![Build Status](https://travis-ci.org/isra17/popcorn-app.png?branch=master)](https://travis-ci.org/isra17/popcorn-app)
 
 To allow any computer user to watch movies easily streaming from torrents, without any particular knowledge.
-
-![Demo Screenshot](http://getpopcornti.me/images/how-ui.png)
-
-### Status
-
-Under development (RC1) for Mac OSX - Windows - Linux.
-
-### APIs
-
-**Currently used:**
-- ~~[RottenTomatoes](http://developer.rottentomatoes.com) for movies metadata.~~
-- ~~[PirateBay](http://thepiratebay.se/browse/207/0/7/0) Recent popular movies list.~~
-- [YIFY](http://yts.re/api) movie torrents API.
-- [OpenSubtitles](http://trac.opensubtitles.org/projects/opensubtitles/wiki/XMLRPC) for subtitles
-- [TheMovieDB](http://www.themoviedb.org/) for movies metadata.
-
-**In discussion:**
-- [SubtitleSeeker](http://www.api.subtitleseeker.com/About/Api-Search/) for subtitles.
-
 
 ## Building
 
@@ -33,11 +14,35 @@ You will need nodejs and grunt:
 
     $ npm install -g grunt-cli
 
+And ruby with compass to build the stylesheets. Read [this](http://thesassway.com/beginner/getting-started-with-sass-and-compass) for more information.
+
+### Running and debugging
+
+Run at least once to install dependencies and generate css files.
+
+    $ npm install
+    $ grunt
+
+Run compass in Terminal for CSS compiling and listen to future changes.
+
+    $ compass watch --css-dir css
+
+Run node-webkit from the root directory with --debug to enable debugging mode like so
+
+    $ node-webkit . --debug
+
+or
+
+    $ nw . --debug
+
+Press F12 to display the dev tools. Enjoy!
+
+- Currently Gaze to watch all files and reload the app is disabled due to memory leaks and unstability.
+
 ### Build
 
 Install the node modules:
 
-    $ npm install
 
 Build with:
 
@@ -53,6 +58,13 @@ You can also build for all platforms with:
 
     $ grunt build --platforms=all
 
+### How to contribute
+
+First, building, testing and reporting bug is highly appreciated. Please include console's output and reproduction step in your bug report.
+If you want to develop, you can look at the issues, especialy the bug and fix them.
+
+Join us on IRC at #popcorntime on freenode, most active developpers hang in there.
+
 ## Any problem?
 
 
@@ -61,10 +73,3 @@ You can also build for all platforms with:
 - Needed to build a custom build of node-webkit that adds h264 support (or you can download ready-to-go builds from https://file.ac/s4Lt3Vo6rls/)
 - Alternatively, we can replace a .so and .dll file from the correspondent Chrome build to node-webkit and node-webkit.exe
 
-
-## Development
-- Run `grunt build` at least once after running `npm install`. This should fix a dependancy.
-- Run `compass watch --css-dir css` in Terminal for CSS compiling and listen to future changes.
-- [How to build with SublimeText](https://github.com/rogerwang/node-webkit/wiki/Debugging-with-Sublime-Text-2-and-3)
-- Currently Gaze to watch all files and reload the app is disabled due to memory leaks and unstability.
-- Run node-webkit from the root directory with --debug to enable debugging mode like so ```node-webkit . --debug```
